@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>View_no_Pass</title>
+    
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app.js"></script>
+    <style> .glyphicon-thumbs-up {cursor:pointer}</style>
+  </head>
+  <body ng-app="project" ng-controller="MainCtrl">
+  <div class="row">
+  <div class="col-md-6 col-mid-offset-3">
+
+  <div class="page-header">
+  <h1>Portfolios<h1>
+  </div>
+
+    <div ng-repeat="portfolio in posts|orderBy : '-rating'">
+
+    <span class="glyphicon glyphicon-thumbs-up"
+    ng-click="incrementRating(portfolio)"></span>
+    
+    {{portfolio.title}} - rating:{{portfolio.rating}}
+    <span style="font-size:20px; margin-left: 10px;"></span>
+     
+      
+      </div>
+      <form ng-submit="addPortfolio()"
+      style="margin-top:15px;">
+      <h3> Add a new portfolio<h3>
+      <div class="form-group">
+      <input type="text"
+      class="Form control"
+      ng-model="title"></input>
+      </div>
+
+    <button type="submit">post</button>
+    </form>
+    </div>
+    </div>
+  </body>
+</html>
